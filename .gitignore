@@ -1,0 +1,60 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+
+# Бэкапы редакторов / Syncthing
+*~
+*.swp
+*.swo
+*.bak
+*.orig
+*sync-conflict-*
+*.sync-conflict-*
+
+# LaTeX (report/)
+report/
+report/*.aux
+report/*.log
+report/*.toc
+report/*.out
+report/*.lof
+report/*.lot
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+report/*.bbl
+report/*.blg
+report/*.run.xml
+report/*.bcf
+report/_minted/
+report/*.minted
+report/*.xdv
+
+# Nix
+result
+result-*
+.direnv/
+.envrc.local
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Редакторы / IDE
+.vscode/
+.idea/
+*.iml
+.history/
+
+# Окружение
+.env
+.env.*
+!.env.example
+
+# Логи / временные
+*.log
+!report/*.log
+tmp/
+temp/

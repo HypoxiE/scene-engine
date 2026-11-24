@@ -1,0 +1,200 @@
+version: 1
+name: "Scene Engine - Clock Demo"
+
+canvas:
+  width: 1920
+  height: 1080
+  scale_mode: cover
+
+clear_color: [0.025, 0.035, 0.075, 1.0]
+
+assets:
+  - id: background
+    type: image
+    path: assets/background.jpg
+
+  - id: digital_panel
+    type: image
+    path: assets/digital_panel.png
+
+  - id: digit_atlas
+    type: image
+    path: assets/digit_atlas.png
+    columns: 10
+    rows: 1
+
+  - id: colon
+    type: image
+    path: assets/colon.png
+
+  - id: clock_classic_face
+    type: image
+    path: assets/clock_classic_face.png
+
+  - id: clock_24_face
+    type: image
+    path: assets/clock_24_face.png
+
+  - id: clock_hour_hand
+    type: image
+    path: assets/clock_hour_hand.png
+
+  - id: clock_minute_hand
+    type: image
+    path: assets/clock_minute_hand.png
+
+  - id: clock_second_hand
+    type: image
+    path: assets/clock_second_hand.png
+
+nodes:
+  - id: background_layer
+    type: sprite
+    asset: background
+    position: [0, 0]
+    size: [1920, 1080]
+    visible: true
+    opacity: 1.0
+    z_index: 0
+
+  - id: digital_panel
+    type: sprite
+    asset: digital_panel
+    position: [105, 95]
+    size: [625, 205]
+    visible: true
+    opacity: 1.0
+    z_index: 5
+
+  # HH:MM:SS. Each digit refers to one frame of digit_atlas.
+  - id: digit_hour_tens
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [100, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  - id: digit_hour_ones
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [160, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  - id: colon_hours_minutes
+    type: sprite
+    asset: colon
+    parent: digital_panel
+    position: [221, 70]
+    size: [18, 86]
+    z_index: 10
+
+  - id: digit_minute_tens
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [255, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  - id: digit_minute_ones
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [315, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  - id: colon_minutes_seconds
+    type: sprite
+    asset: colon
+    parent: digital_panel
+    position: [376, 70]
+    size: [18, 86]
+    z_index: 10
+
+  - id: digit_second_tens
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [410, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  - id: digit_second_ones
+    type: sprite
+    asset: digit_atlas
+    parent: digital_panel
+    position: [470, 70]
+    size: [48, 86]
+    frame: 0
+    z_index: 10
+
+  # Classic 12-hour dial.
+  - id: classic_clock_face
+    type: sprite
+    asset: clock_classic_face
+    position: [100, 500]
+    size: [440, 440]
+    z_index: 5
+
+  - id: classic_hour_hand
+    type: sprite
+    asset: clock_hour_hand
+    parent: classic_clock_face
+    position: [0, 0]
+    size: [440, 440]
+    z_index: 8
+
+  - id: classic_minute_hand
+    type: sprite
+    asset: clock_minute_hand
+    parent: classic_clock_face
+    position: [0, 0]
+    size: [440, 440]
+    z_index: 9
+
+  - id: classic_second_hand
+    type: sprite
+    asset: clock_second_hand
+    parent: classic_clock_face
+    position: [0, 0]
+    size: [440, 440]
+    z_index: 10
+
+  # 24-hour dial with 24 divisions and no second hand.
+  - id: clock_24_face
+    type: sprite
+    asset: clock_24_face
+    position: [1320, 285]
+    size: [440, 440]
+    z_index: 5
+
+  - id: clock_24_hour_hand
+    type: sprite
+    asset: clock_hour_hand
+    parent: clock_24_face
+    position: [0, 0]
+    size: [440, 440]
+    opacity: 0.9
+    z_index: 8
+
+  - id: clock_24_minute_hand
+    type: sprite
+    asset: clock_minute_hand
+    parent: clock_24_face
+    position: [0, 0]
+    size: [440, 440]
+    opacity: 0.9
+    z_index: 9
+
+scripts:
+  entry: scripts/main.rhai
+  tick_rate: 60

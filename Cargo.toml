@@ -1,0 +1,18 @@
+[package]
+name = "scene-engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+bytemuck = { version = "1.24", features = ["derive"] }
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+fontdb = "0.24"
+fontdue = "0.9.5"
+pollster = "0.4"
+rhai = "1.27"
+serde = { version = "1.0", features = ["derive"] }
+serde-saphyr = "2.1.1"
+wgpu = "30.0.2"
+winit = "0.30.13"

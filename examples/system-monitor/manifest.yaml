@@ -1,0 +1,179 @@
+version: 1
+name: "Scene Engine - System Monitor"
+
+canvas:
+  width: 1600
+  height: 900
+  scale_mode: contain
+
+clear_color: [1.0, 1.0, 1.0, 1.0]
+
+assets:
+  - id: wifi_icon
+    type: image
+    path: assets/wifi_icon.png
+
+  - id: ram_icon
+    type: image
+    path: assets/ram_icon.png
+
+  - id: bar_track
+    type: image
+    path: assets/bar_track.png
+
+  - id: bar_fill
+    type: image
+    path: assets/bar_fill.png
+
+nodes:
+  - id: title
+    type: text
+    text: "SYSTEM MONITOR"
+    font_family: "DejaVu Sans"
+    font_size: 48.0
+    color: [0.08, 0.09, 0.12, 1.0]
+    position: [112, 92]
+    size: [437, 57]
+    z_index: 2
+
+  - id: subtitle
+    type: text
+    text: "LIVE SYSTEM METRICS"
+    font_family: "DejaVu Sans"
+    font_size: 19.0
+    color: [0.42, 0.45, 0.50, 1.0]
+    position: [116, 166]
+    size: [214, 23]
+    z_index: 2
+
+  - id: time_group
+    type: group
+    position: [112, 270]
+
+  - id: time_label
+    type: text
+    parent: time_group
+    text: "LOCAL TIME"
+    font_family: "DejaVu Sans"
+    font_size: 22.0
+    color: [0.38, 0.41, 0.46, 1.0]
+    position: [0, 0]
+    size: [132, 27]
+    z_index: 2
+
+  - id: clock_value
+    type: text
+    parent: time_group
+    text: "00:00:00"
+    font_family: "DejaVu Sans Mono"
+    font_size: 94.0
+    color: [0.05, 0.06, 0.08, 1.0]
+    position: [0, 54]
+    size: [454, 110]
+    z_index: 2
+
+  - id: wifi_group
+    type: group
+    position: [112, 520]
+
+  - id: wifi_icon
+    type: sprite
+    asset: wifi_icon
+    parent: wifi_group
+    position: [0, 5]
+    size: [64, 64]
+    z_index: 2
+
+  - id: wifi_label
+    type: text
+    parent: wifi_group
+    text: "WI-FI SIGNAL"
+    font_family: "DejaVu Sans"
+    font_size: 25.0
+    color: [0.16, 0.18, 0.22, 1.0]
+    position: [96, 2]
+    size: [164, 30]
+    z_index: 2
+
+  - id: wifi_value
+    type: text
+    parent: wifi_group
+    text: "0%"
+    font_family: "DejaVu Sans Mono"
+    font_size: 48.0
+    color: [0.05, 0.06, 0.08, 1.0]
+    position: [930, -5]
+    size: [126, 56]
+    text_align: right
+    z_index: 2
+
+  - id: wifi_track
+    type: sprite
+    asset: bar_track
+    parent: wifi_group
+    position: [96, 78]
+    size: [960, 18]
+    z_index: 1
+
+  - id: wifi_bar_fill
+    type: sprite
+    asset: bar_fill
+    parent: wifi_group
+    position: [96, 78]
+    size: [1, 18]
+    z_index: 2
+
+  - id: ram_group
+    type: group
+    position: [112, 710]
+
+  - id: ram_icon
+    type: sprite
+    asset: ram_icon
+    parent: ram_group
+    position: [0, 5]
+    size: [64, 64]
+    z_index: 2
+
+  - id: ram_label
+    type: text
+    parent: ram_group
+    text: "MEMORY IN USE"
+    font_family: "DejaVu Sans"
+    font_size: 25.0
+    color: [0.16, 0.18, 0.22, 1.0]
+    position: [96, 2]
+    size: [203, 30]
+    z_index: 2
+
+  - id: ram_value
+    type: text
+    parent: ram_group
+    text: "0%"
+    font_family: "DejaVu Sans Mono"
+    font_size: 48.0
+    color: [0.05, 0.06, 0.08, 1.0]
+    position: [930, -5]
+    size: [126, 56]
+    text_align: right
+    z_index: 2
+
+  - id: ram_track
+    type: sprite
+    asset: bar_track
+    parent: ram_group
+    position: [96, 78]
+    size: [960, 18]
+    z_index: 1
+
+  - id: ram_bar_fill
+    type: sprite
+    asset: bar_fill
+    parent: ram_group
+    position: [96, 78]
+    size: [1, 18]
+    z_index: 2
+
+scripts:
+  entry: scripts/main.rhai
+  tick_rate: 15

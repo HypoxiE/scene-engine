@@ -1,0 +1,28 @@
+version: 1
+name: "Scene Engine - Presentation Demo"
+
+canvas:
+  width: 1920
+  height: 1080
+  scale_mode: cover
+
+clear_color: [0.025, 0.035, 0.075, 1.0]
+
+assets:
+  - id: nwixowos
+    type: image
+    path: assets/nwixowos.png
+
+nodes:
+  - id: nwixowos__
+    type: sprite
+    asset: nwixowos
+    position: [0, 0]
+    size: [1080, 1080]
+    visible: true
+    opacity: 1.0
+    z_index: 0
+
+#scripts:
+#  entry: scripts/main.rhai
+#  tick_rate: 60
